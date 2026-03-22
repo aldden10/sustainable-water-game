@@ -1,9 +1,13 @@
 "use client"
 import { useState } from "react";
+import WaterUseBreakdown from "./WaterUseBreakdown";
 
-export default function WaterUse() {
+interface WaterUseProps {
+    people: number;
+    setPeople: (people: number) => void;
+}
 
-    const [people, setPeople] = useState(0);
+export default function WaterUse({ people, setPeople }: WaterUseProps) {
 
     const usage = people * 230;
     const tankPercent = Math.min(usage / 10, 100);
@@ -89,7 +93,6 @@ export default function WaterUse() {
                 <p>{usage * 365} L / Year</p>
 
             </div>
-
 
             {/* RIGHT - CLEAN TANK */}
             <div style={{
